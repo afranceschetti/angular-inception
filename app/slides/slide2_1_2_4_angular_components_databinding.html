@@ -1,0 +1,34 @@
+<div  id='slide2124AngularComponentsDatabinding'>
+	<div class='ribbon-title'>
+		<h1 class='clearfix h1-inline'><span class='pull-left'>AngularJS  Components</span> <span class='pull-right'>Two Way Data Binding</span></h1>
+		<div class="triangle triangle-l"></div>
+		<div class="triangle triangle-r"></div>
+	</div>
+
+	<p class='intro ' >Automatic synchronization of data between the model and view components</p>
+	<table class='code-table'>
+		<thead><tr><th>Html</th><th>Javascript</th></thead>
+		<tbody class='code-plain '>
+			<tr>
+				<td>
+					<div>&lt;<span class='html-tag'>div</span>&gt;<span ng-non-bindable>&lbrace;&lbrace;myName&rbrace;&rbrace;</span>&lt;/<span class='html-tag'>div</span>&gt;</div>
+					<div class='indent-top-1'>&lt;<span class='html-tag'>input</span> type=&quot;text&quot; 
+					<span class='html-directive'>ng-model</span>=<span class='html-directive-value'>&quot;myName&quot;</span>/&gt; </div>
+				</td>
+				<td>
+					<div>appControllers.controller(<span class='js-string'>'MyCtrl'</span>, [<span class='js-reserved'>'$scope'</span>]){</div>
+					<div class='indent-1'><span class='js-reserved'>$scope.myName</span> = <span class='js-string'>'Alessandro'</span>;</div>
+					<div>} ]);</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class='row text-left example-row'>
+		<div class='col-sm-3'>
+			<input type="text" ng-model="myName" class='form-control  col-sm-3 ' placeholder='Name please...'/> 
+		</div>
+		<div class='col-sm-9'>Your name is <strong>{{myName}}</strong></div>
+	</div>
+
+	<simple-footer></simple-footer>
+</div>
