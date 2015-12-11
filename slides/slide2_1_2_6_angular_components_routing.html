@@ -1,0 +1,35 @@
+<div  id='slide2126AngularComponentsRouting'>
+	<div class='ribbon-title'>
+		<h1 class='clearfix h1-inline'><span class='pull-left'>AngularJS Components</span> <span class='pull-right'>Routing</span></h1>
+		<div class="triangle triangle-l"></div>
+		<div class="triangle triangle-r"></div>
+	</div>
+
+	<div class='code-plain indent-top-1'>
+		<i class="fa fa-globe"></i> <span class='example-url'>http://www.example.com/myApp/mypage/value1/value2</span>
+	</div>
+		<div class='code-plain-title indent-top-1 clearfix'>
+		<div class='pull-left'>Config</div>
+		<div class='pull-right tech'>JAVASCRIPT</div> 
+		<div class='pull-right'>app.js</div>
+	</div>
+	<div  class='code-plain'>
+		<div>app.config([<span class='js-reserved'>function</span>($routeProvider) {</div>
+		<div class='indent-1'>$routeProvider.when(<span class='js-string'>'/mypage/:par1/:par2',{templateUrl: 'partials/mypage.html'</span>, jsPar: <span class='js-string'>'val4'</span>});</div>
+		<div>}]);</div>
+	</div>
+	</div>
+		<div class='code-plain-title indent-top-1 clearfix'>
+		<div class='pull-left'>Controller</div>
+		<div class='pull-right tech'>JAVASCRIPT</div> 
+		<div class='pull-right'>controller.js</div>
+	</div>
+	<div class='code-plain'>
+		<div>appControllers.controller(<span class='js-string'>'MyCtrl'</span>, [<span class='js-string'>'$scope'</span>, <span class='js-string'>'$route'</span>]){</div>
+			<div class='indent-1'><span class=''>$scope.par1</span> = <span >$route.current.params.par1</span>; &hellip;</div>
+		<!--<div>} ]);</div>-->
+
+	</div>
+	
+	<simple-footer></simple-footer>
+</div>

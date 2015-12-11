@@ -1,0 +1,72 @@
+<div  id='slide214AngularExample' ng-controller="ExampleCtrl" >
+	<div class='ribbon-title'>
+		<h1 class='clearfix h1-inline'><span class='pull-left'>AngularJS - Example</span></h1>
+		<div class="triangle triangle-l"></div>
+		<div class="triangle triangle-r"></div>
+	</div>
+
+	
+	<div class='text-left'>
+		<carousel> 
+			<slide>
+				<h3>Bootstrap  Javascript - Carousel</h3>
+				<div class='row indent-top-1'>
+					<div class='col-sm-6 col-sm-offset-3 angular-example'>
+						<carousel interval="myInterval"> 
+							<slide ng-repeat="slide in slides">
+								{{slide.myProp}}
+							</slide> 
+						</carousel>
+					</div>
+				</div>
+				<div class='row indent-top-1'>
+					<div class='col-sm-11 col-sm-offset-1'>
+						<div class='code-plain' ng-non-bindable>
+							<div>&lt;<span class='html-directive'>carousel</span> <span class='html-directive'>interval</span>=<span class='html-directive-value'>&quot;myInterval&quot;</span>&gt;</div>
+							<div class='indent-1'>&lt;<span class='html-directive'>slide</span> <span class='html-directive'>ng-repeat</span>=<span class='html-directive-value'>&quot;slide in slides&quot;</span>&gt;</div>
+							<div class='indent-2'>{{slide.myProp}}</div>
+							<div class='indent-1'>&lt;/<span class='html-directive'>slide</span>&gt; </div>
+							<div>&lt;/<span class='html-directive'>carousel</span>&gt;</div>
+							<div>$scope.myInterval = <span class='js-primitive'>3000</span>; $scope.slides = [{myProp:<span class='js-string'>"one"</span>},&hellip;</div>
+						</div>
+					</div>
+				</div>
+			</slide> 
+			<slide> 
+				<h3>Angular translate</h3>
+				<div class='row indent-top-1'>
+					<div class='col-sm-8 col-sm-offset-2 angular-example'>	
+						<div class='pull-left' ><small translate>{{'GREETINGS'}} Alessandro</small></div>
+						<div class='pull-right'>
+							<a href ng-click="changeLanguage('it')" class="menu-flag-icon menu-flag-icon-it">
+								<img src='images/flags/it.png'>
+							</a>
+							<a href ng-click="changeLanguage('en')" class="menu-flag-icon menu-flag-icon-en">
+								<img src='images/flags/en.png'>
+							</a>
+
+						</div>
+					</div>
+				</div>
+				<div class='row indent-top-1'>
+					<div class='col-sm-11 col-sm-offset-1'>
+						<div class='code-plain' ng-non-bindable>
+							<div>&lt;<span class='html-tag'>small</span> <span class='html-directive'>translate</span>&gt;{{&#39;GREETINGS&#39;}} Alessandro&lt;/<span class='html-tag'>small</span>&gt;</div>
+							<div>&lt;<span class='html-tag'>a</span> <span class='html-attribute'>href</span> 
+							<span class='html-directive'>ng-click</span>=<span class='html-directive-value'>&quot;changeLang(&#39;it&#39;)&quot;</span>&gt;it&lt;/<span class='html-tag'>a</span>&gt;</div>
+
+							<div class='indent-top-1'>$scope.changeLang = <span class='js-reserved'>function</span>(langKey) {</div>
+							<div class='indent-1'>$translate.use(langKey);</div>
+							<div>};</div>
+							
+						</div>
+					</div>
+				</div>
+			</slide> 
+		</carousel>
+	</div>
+	<simple-footer></simple-footer>
+</div>
+
+	
+	

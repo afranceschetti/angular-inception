@@ -1,0 +1,414 @@
+/* app css stylesheet */
+@import url(//fonts.googleapis.com/css?family=Aldrich);
+@import url(//fonts.googleapis.com/css?family=Raleway);
+.debug{border: solid 0px red!important;}
+.no-support-message {display:none; }
+.impress-not-supported .no-support-message {display:block; }
+
+/* additional styles just to make things look a bit nicer */
+body {background:#EBEBEB; font:16px/24px Raleway,"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; color:#333; }
+.step {width:940px; margin:0 auto 24px auto; text-align:center; }
+
+
+a, a:visited, a:active{
+	color: #1a80e5;
+}
+strong{color: #1a80e5;}
+li{
+	text-align: left;
+	line-height: 1.6em;
+	text-decoration: none;
+	list-style: none;
+}
+
+.hint{
+	font-size: large;
+}
+.present{z-index: 1000;}
+.past, .future{z-index:1}
+.slide {
+	position: relative;
+	background-color: white;
+	/*border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+	*/
+	border: 1px solid #F1F1F1;
+	box-shadow: 16px 16px 20px rgba(0, 0, 0, .5);
+	color: #666666;
+	display: block;
+	font-family: Raleway,'Open Sans',Arial,sans-serif;
+	font-size: 30px;
+	height: 600px;
+	letter-spacing: -1px;
+	line-height: 36px;
+	padding: 40px 60px;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+	width: 900px;
+}
+
+.slide-trasparent {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+.bullet{
+	font-size: 18pt;
+	text-align: center;
+	font-weight: bold;
+	width: 1.5em;
+	display: inline-block;
+	height: 1.5em;
+	line-height: 1.6em;
+	margin: .5em .5em .5em 0;
+	border-radius: 4px;
+}
+.simple-footer{background-color: #000; position: absolute; bottom: -1px; width: 900px; 	font-size: smaller; color: white; margin-left: -60px; height: 56px; padding: 12px; line-height: 32px;}
+.footer-logo-small{
+	height: 32px; 
+	width: auto;
+}
+
+.fallback-message {
+ font-family: sans-serif;
+ line-height: 1.3;
+
+ width: 780px;
+ padding: 10px 10px 0;
+ margin: 20px auto;
+
+ border: 1px solid #E4C652;
+ border-radius: 10px;
+ background: #EEDC94;
+}
+
+.fallback-message p {
+ margin-bottom: 10px;
+}
+
+.hint {
+ /*
+ We hide the hint until presentation is started and from browsers not supporting
+ impress.js, as they will have a linear scrollable view ...
+ */
+ display: none;
+
+ /*
+ ... and give it some fixed position and nice styles.
+ */
+ position: fixed;
+ left: 0;
+ right: 0;
+ bottom: 200px;
+
+ background: rgba(0,0,0,0.5);
+ color: #EEE;
+ text-align: center;
+
+ font-size: 50px;
+ padding: 20px;
+
+ z-index: 100;
+
+ /*
+ By default we don't want the hint to be visible, so we make it transparent ...
+ */
+ opacity: 0;
+
+ /*
+ ... and position it below the bottom of the screen (relative to it's fixed position)
+ */
+ -webkit-transform: translateY(400px);
+ -moz-transform: translateY(400px);
+ -ms-transform: translateY(400px);
+ -o-transform: translateY(400px);
+ transform: translateY(400px);
+
+ /*
+ Now let's imagine that the hint is visible and we want to fade it out and move out
+ of the screen.
+
+ So we define the transition on the opacity property with 1s duration and another
+ transition on transform property delayed by 1s so it will happen after the fade out
+ on opacity finished.
+
+ This way user will not see the hint moving down.
+ */
+ -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+ -moz-transition: opacity 1s, -moz-transform 0.5s 1s;
+ -ms-transition: opacity 1s, -ms-transform 0.5s 1s;
+ -o-transition: opacity 1s, -o-transform 0.5s 1s;
+ transition: opacity 1s, transform 0.5s 1s;
+}
+.impress-supported .fallback-message {
+ display: none;
+}
+
+.impress-enabled .hint {display: block }
+
+.impress-enabled #impress {
+ pointer-events: auto;
+}
+.impress-on-welcome .hint {
+ opacity: 1;
+ 
+ -webkit-transform: translateY(0px);
+ -moz-transform: translateY(0px);
+ -ms-transform: translateY(0px);
+ -o-transform: translateY(0px);
+ transform: translateY(0px);
+ 
+ -webkit-transition: opacity 1s 5s, -webkit-transform 0.5s 4.5s;
+ -moz-transition: opacity 1s 5s, -moz-transform 0.5s 4.5s;
+ -ms-transition: opacity 1s 5s, -ms-transform 0.5s 4.5s;
+ -o-transition: opacity 1s 5s, -o-transform 0.5s 4.5s;
+ transition: opacity 1s 5s, transform 0.5s 4.5s;
+}
+
+h2 {
+ display: block;
+ font-size: 1.5em;
+ -webkit-margin-before: 0.83em;
+ -webkit-margin-after: 0.83em;
+ -webkit-margin-start: 0px;
+ -webkit-margin-end: 0px;
+ font-weight: bold;
+}
+
+.bullet-up{border-color: #008a00; background-color: #008a00; color: white;}
+.bullet-neutral{border-color: #edd400; background-color: #edd400; color: white;}
+.bullet-down{border-color: #e51400; background-color: #e51400; color: white;}
+.row-with-hint{display: inline-block;}
+.bullet-directive{border-color: #e51400; background-color: #e51400; color: white;padding: .3em; border-radius: 4px;}
+
+.impress-enabled {pointer-events: none }
+.impress-enabled #impress {pointer-events: auto }
+
+.title-right-top{position: absolute; top: -1px; color:#9A9898; font-weight: 600; font-size: 1.2em; letter-spacing:.1em; right:6px; font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+
+.link-url{color: #1a80e5; font-family: "Courier New",monospace;}
+.label-box{display: block; margin: .2em;padding: .3em;background-color: #eeeeec;border-radius: 4px;}
+.label-box h4{font-size: 22pt;font-weight: bold;}
+.label-box small{margin: 0 .5em; font-size: 16pt; }
+
+.h1-inline{font-size: 36px;}
+.h1-inline small{line-height: 36px;}
+.code-table {border-collapse: collapse; border-style: hidden;}
+ /*f8ee48*/
+.highlights{font-size: smaller;padding: .3em .5em; background-color: #9ade00; color: #000; border-radius: 2px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);letter-spacing: 4px;
+	-webkit-transform: rotate(5deg); -moz-transform: rotate(5deg); -ms-transform: rotate(5deg); -o-transform: rotate(5deg); transform: rotate(5deg);
+ -webkit-transition-delay: 0.25s; -moz-transition-delay: 0.25s; -ms-transition-delay: 0.25s; -o-transition-delay: 0.25s; transition-delay: 0.25s;}
+
+.code-table td, .code-table th {border:solid #9eabb0;vertical-align: top; padding: 0 .5em; border-width: 1px 1px;}
+.code-table th{text-align: center; }
+
+.link{font-family: "Lucida Console", Monaco, monospace; text-shadow: none;font-size: .9em; line-height: 1em;}
+.code-plain-title{font-size: 32px; text-align: left; border-bottom: 1px solid #9eabb0;font-weight: normal; }
+.code-plain-title .pull-right{color: #9eabb0;font-size: .8em;}
+.code-plain-title .tech{background-color: #9eabb0; color: white; padding: 0 .5em;font-weight: bold;letter-spacing: .05em; margin-left: 1em;}
+
+.code-plain{text-align: left; font-size: .7em; font-family: "Lucida Console", Monaco, monospace; text-shadow: none;}
+.code-example{text-align: left; font-size: .7em; font-family: "Lucida Console", Monaco, monospace; background-color: #F5F5F5;
+	padding: .5em;border-radius: 4px; color: #212121; border: solid 1px #9A9898; text-shadow: none;}
+.code-example-list{background-color: transparent; border: 0;}
+.code-example-list .title{font-weight: bold;border-bottom: 2px solid #9eabb0;}
+.code-example-list .row{border-bottom: 1px solid #9eabb0;}
+.html-comment{color: #999999;}
+.html-tag{color: #0050ef}
+.html-directive{color: #e51400}
+.html-attribute{color: #a20025}
+.html-directive-value{color: #1ba1e2;}
+.html-attribute-value{color: #fa6800;}
+.js-string{color: #11A012;}
+.js-comment{color: #8f5902;}
+.js-reserved{color: #0047c8;}
+.js-primitive{color: #000;}
+.java-string{color: #0050ef;}
+.java-reserved{color: #a20025;}
+.java-primitive{color: #000;}
+.java-annotation{color: #647687;}
+.indent-1{padding-left: 1em;}
+.indent-2{padding-left: 2em;}
+.indent-3{padding-left: 3em;}
+.indent-top-1{padding-top: 1em;}
+.indent-top-2{padding-top: 2em;}
+.intro{font-size: .7em; background-color: #F5F5F5;}
+.example-row{background-color: #F5F5F5; padding:.1em;}
+.small{font-size: 22px;}
+
+.smartdatanet-logo-text{font-family: "Aldrich",sans-serif; color: #000; line-height: 2em;}
+.smartdatanet-logo-text img{height: 2em;margin-right: .2em;}
+
+#slide11Welcome .logo-csipiemonte{width: 300px; height: auto}
+#slide11Welcome .welcome-header{margin-bottom: 50px;}
+#slide11Welcome .welcome-body{position: relative}
+#slide11Welcome .titles-box{position: absolute; bottom: 10px; right: 0px;}
+#slide11Welcome h1{font-size: 1.5em; font-weight: bold;}
+#slide11Welcome .welcome-footer{margin-top: 100px; font-size: 1.2em;}
+#slide11Welcome .logo-smartdatanet{width: 200px; height: auto}
+
+#slide12Agenda h1{font-size: 48px;}
+#slide12Agenda ul{font-size: 32px;}
+#slide12Agenda ul .agenda-item{line-height: 3em;}
+#slide12Agenda ul .agenda-icons img{height: 2em;margin-top: .5em;margin-left: 1em;}
+#slide12Agenda li{border-bottom: #9eabb0 solid 1px;}
+#slide12Agenda li small{padding: 0 .5em; color: #9eabb0;;}
+
+
+#slide13Intro .logo img{height: 48px; width: auto;}
+#slide13Intro .logo, #slide13Intro .desc {font-size: 32px; line-height: 48px; }
+#slide13Intro .box-component a{color: #000;}
+#slide13Intro .box-component{border: black 0px solid;font-size: 24px; line-height: 48px; border-radius: 12px; box-shadow: 8px 8px 20px rgba(0, 0, 0, .5);padding: .5em;}
+
+.box-smartdata{ background-color: #bdcdd4;}
+.box-yucca{margin: 1em .5em .5em .5em; clear: both; background-color: #9eabb0; color: white; margin-bottom: 1em;}
+.box-yucca-component{background-color: #0e232e; color: white; margin: .5em 0;}
+.box-userportal{background-color: #0070F9; color: white; margin: .5em 0;}
+.hellip{line-height: 48px; font-size: 48px; font-weight: bold; padding-top: 32px;}
+
+
+
+#slide13Intro p{line-height: 2em; font-size: .9em;}
+#slide13Intro .label-box{width: 12em;margin: 10px 5px;}
+
+
+#slide200Client img{height: 150px; width: auto;margin: .2em 2em; }
+#slide200Client .footer-logo-small{height: 32px;}
+
+#slide210Angular .angular-info{padding-top: 1em;}
+#slide210Angular .angular-info .row{margin: 1em 0; text-align: left;}
+#slide210Angular .angular-info .highlights{transform: rotate(-5deg); text-align: center;}
+#slide210Angular .angular-info .highlights a{color: #000;}
+
+#slide211AngularIntro .angular-strengths{}
+#slide211AngularIntro ul{font-size: smaller;}
+#slide211AngularIntro li{text-align: left; line-height: 3em;text-decoration: none;list-style: none; border-bottom: solid 1px #9eabb0;}
+
+#slide211AngularIntro li small{font-size: .8em; padding-left: 10px; text-shadow: none; }
+#slide211AngularIntro li .bullet{font-size: 1.2em;}
+#slide211AngularIntro ul{padding-left: 0;}
+
+#slide215AngularReferences{}
+#slide215AngularReferences .row img{height: 2em;}
+#slide215AngularReferences .link{word-wrap: break-word; font-size: .8em;}
+#slide215AngularReferences .row{padding-bottom: 1em; margin-bottom: 1em; border-bottom: 1px solid #9eabb0;}
+#slide215AngularReferences .last-row{padding-bottom: 0; margin-bottom: 0; border-bottom: none;}
+#slide215AngularReferences .first-col{padding-left:0;}
+#slide215AngularReferences .last-col{padding:0;}
+
+#slide2122AngularComponentsDirectives .intro{margin-top: 1em;}
+#slide2122AngularComponentsDirectives .code-example{font-size: .7em; margin-bottom: 1em;}
+#slide2122AngularComponentsDirectives .code-example .row{padding: .2em;}
+#slide2122AngularComponentsDirectives h3{margin-top: 1.5em;margin-bottom: 0px;}
+#slide2122AngularComponentsDirectives .code-plain{font-size: .55em;}
+
+#slide2123AngularComponentsCustomdirectives .code-plain{font-size: 1em; margin: 4px; font-size: .7em;}
+#slide2123AngularComponentsCustomdirectives .code-table{width: 100%; margin-top: 1em; font-size:.9em;}
+#slide2123AngularComponentsCustomdirectives .code-table th{font-size: 1em;}
+#slide2123AngularComponentsCustomdirectives .code-table td{font-size: 1em;}
+
+#slide2124AngularComponentsDatabinding .intro{margin-top: 1.5em;}
+#slide2124AngularComponentsDatabinding .code-table th{font-size: .8em;}
+#slide2124AngularComponentsDatabinding .code-table{font-size: .9em; width: 100%; margin-top: 1.5em;}
+#slide2124AngularComponentsDatabinding .example-row{margin-top: 1em; padding: .5em;font-size: 1.5em;}
+#slide2124AngularComponentsDatabinding input{height: 48px; color: #000;font-size: 22px;}
+
+#slide2125AngularComponentsFilter .intro{margin-top: 2em;}
+#slide2125AngularComponentsFilter h3{margin-top: 2em;}
+#slide2125AngularComponentsFilter .code-plain{font-size: .55em;}
+#slide2125AngularComponentsFilter .last-paragraph{font-size: .7em;}
+
+#slide2126AngularComponentsRouting .example-url{font-size: 1.4em; color:#1a80e5; margin-left: .5em;}
+#slide2126AngularComponentsRouting .code-plain{font-size: .6em; margin: 4px 0; position: relative;}
+#slide2126AngularComponentsRouting .code-example-small{font-size: .6em}
+#slide2126AngularComponentsRouting .code-plain i {color:#9A9898;font-size: 1.4em;}
+
+#slide213AngularPlugins h3{font-size: 28px; margin-top: 2em;} 
+#slide213AngularPlugins .row{text-align: left; line-height: 3em;text-decoration: none;list-style: none;
+ border-bottom: solid 1px #e4f2bb;}
+
+#slide214AngularExample h3{font-size: 1.5em;}
+#slide214AngularExample .code-plain{font-size: .6em; padding-left: 2em;line-height: 1.8em;}
+#slide214AngularExample .carousel-control.right , #slide214AngularExample .carousel-control.left{background-image: none;}
+#slide214AngularExample .angular-example{border-bottom: 2px dashed #000; border-top: 2px dashed #000; padding: .2em 1em; background-color: #ccff42; color: #000;}
+#slide214AngularExample .angular-example .carousel-control.left, 
+#slide214AngularExample .angular-example .carousel-control.right, 
+#slide214AngularExample .angular-example .carousel-indicators{display: none;}
+#slide214AngularExample .angular-example img{margin-left: .5em;}
+#slide214AngularExample .carousel-control.left, 
+#slide214AngularExample .carousel-control.right{color: #1a80e5;}
+#slide214AngularExample .carousel-indicators{display: none;}
+#slide214AngularExample a:hover{text-decoration: none;}
+
+
+#slide22Nvd3 .nvd3-logo{width: 80%; height: auto;}
+#slide22Nvd3 .link{font-size: .7em;word-wrap: break-word;}
+
+#slide30Server .java-logo{height: 232px; width: auto;}
+#slide30Server .footer-logo-small{height: 32px;}
+
+#slide31Jboss .version{padding-top: 250px;}
+#slide31Jboss .jboss-logo{height: 300px; width: auto;}
+
+#slide32Servlet .servelt-type-list{font-size: .7em; text-align: left;}
+#slide32Servlet .servelt-type-list .row{border-bottom:#9eabb0 solid 0px;}
+#slide32Servlet .servelt-type-list  .col-sm-2{ padding-left:0;}
+#slide32Servlet .servelt-type-list  .col-sm-9{ padding-left:0;}
+#slide32Servlet .code-plain-title {margin-top: -1em;}
+#slide32Servlet .servlet-title{margin:.2em 0; padding: .2em .2em; background-color: #DBDB00; border-radius: 2px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); margin-right: 1em; color: #000;}
+#slide32Servlet .servlet-example{margin-top: .7em;font-size: .9em;}
+#slide32Servlet .userportal{transform: rotate(270deg); transform-origin: left top; font-size: 1.5em; margin-left: -15px;}
+
+.slide-macro h1{display: inline-block; font-size: 72px; line-height: 92px;color: white; margin: 0; padding: .05em .5em; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);letter-spacing: 4px;transform: rotate(-5deg)}
+#slide200Client{border-radius: 0;width: 900px; height: 600px; background-color:trasparent;}
+#slide200Client h1{background-color: #edd400 ;}
+#slide30Server{border-radius: 0;width: 900px; height: 600px; background-color:trasparent;}
+#slide30Server h1{background-color: #e51400;}
+#slide40Build{border-radius: 0;width: 900px; height: 300px; background-color:trasparent;}
+#slide40Build h1{background-color: #1ba1e2; margin-left: -120px;}
+
+
+.build-hint{position: relative; background-color: #1ba1e2; color: white; padding: 0; 	box-shadow: 8px 8px 20px rgba(0, 0, 0, .5); padding: .2em .2em; margin-top:1em;}
+.build-hint i{position: absolute; left: 18px; top: 7px;}
+.past .build-hint, .future .build-hint{visibility: hidden;}
+#slide41Github .github-logo{width: 90%; height: auto;}
+#slide42Maven .maven-logo{width: 90%; height: auto;}
+#slide43Grunt .grunt-logo{width: 90%; height: auto;}
+#slide43Grunt .grunt-logo-text{font-weight: bold; text-shadow: none; text-align: left; color: #482E17;}
+#slide43Grunt .grunt-logo-text h3{font-size: 2.5em; margin: 0;font-weight: bold; padding-top: .5em;}
+
+#slide44Bower .bower-logo{width: 90%; height: auto;}
+#slide44Bower .bower-logo-text{font-weight: bold; text-shadow: none; text-align: left; color: #543729;}
+#slide44Bower .bower-logo-text h3{font-size: 2.5em; margin: 0;font-weight: bold; padding-top: .5em; color: #EF5734;}
+
+.slide-goodbye{padding:0;}
+#slide5Goodbye .thanks{position: absolute; top: 0;width: 100%;}
+#slide5Goodbye h1{width: 100%; font-weight: bold; font-size: 96px; text-align: right;margin: 0; padding: 0; }
+#slide5Goodbye h2{width: 100%; font-weight: bold; font-size: 42px; text-align: right;margin: 0; padding: 0; }
+#slide5Goodbye .footer {transform: rotate(-90deg);transform-origin: right top;position: absolute;font-size: smaller;
+	text-align: right; right: 0; top: 0;}
+
+#slide5Goodbye{}
+#slide5Goodbye .email{position: absolute; bottom:0;left: 50px;font-size: 48px; width: 100%; text-align: left;}
+#slide5Goodbye .csi-logo{position: absolute; bottom:0;right: 0;}
+#slide5Goodbye .userportal-link {font-size: 60px; line-height:60px; position: absolute; top:10px; left: -500px;transform: rotate(270deg); transform-origin: right top;}
+#slide5Goodbye .userportal-link img{height: 60px;}
+#slide5Goodbye .developed-with-badge{position: absolute; right:-72px;top: 170px; color: white; font-size: 16px; width: 144px; transform: rotate(20deg);
+	box-shadow: 16px 16px 20px rgba(0, 0, 0, .5); height:144px; border-radius: 100%; background-color: #9457EB;text-align: center; padding: 4px; line-height: 1em; }
+#slide5Goodbye .developed-with{padding-top: 18px; border: dashed 4px white;border-radius: 100%; height:136px; width:136px;}
+#slide5Goodbye .developed-with small{letter-spacing: 1px; font-size: .7em;}
+#slide5Goodbye .developed-with span{line-height: .4em ; letter-spacing: 1px}
+#slide5Goodbye .developed-with  .indent-top{margin-top: 6px;}
+.past #slide5Goodbye , .future #slide5Goodbye {visibility: hidden;}
+.past .ribbon-title , .future .ribbon-title{visibility: hidden;}
+.past #slide5Goodbye , .future #slide5Goodbye {visibility: hidden;}
+.past .simple-footer , .future .simple-footer{visibility: hidden;}
+.past .angular-info, .future .angular-info{visibility: hidden;}
+.ribbon-title{background: #C50E39;box-shadow: 8px 8px 16px rgba(0,0,0,0.5); width: 960px; margin-left: -90px; margin-top: -10px; margin-bottom: 10px;  position: relative; height: 80px; padding-top: 4px;}
+.ribbon-title h1{ line-height: 60px; color: white;border-top: 2px white dashed; border-bottom: 2px white dashed; margin: 4px 4px 0 4px; padding: 0 90px;}
+.triangle{	border-style:solid;	border-width:21px;	height:0px;	width:0px;	position: absolute;	z-index: -1;}
+.triangle-l {border-color: transparent #A20026 transparent transparent;	left: 9px;	bottom: -21px;	transform: rotate(135deg);}
+.triangle-r {border-color: transparent transparent transparent #A20026;right: 9px;	bottom: -21px;	z-index: -1;	transform: rotate(-135deg); }
+
+
